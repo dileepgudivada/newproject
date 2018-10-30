@@ -29,8 +29,8 @@ node{
    }
    stage('Push to Docker Hub'){
  
-	withCredentials([string(credentialsId: 'mydocker', variable: 'docker')]) {
-        sh "docker login -u dileepdevops8@gmail.com -p ${docker}"
+	withCredentials([file(credentialsId: '', variable: 'mydocker')]) {
+        sh "docker login -u dileepdevops8@gmail.com -p ${mydocker}"
      }
      sh 'docker build -t dileep/myimage:0.0.1 .'
    }  
