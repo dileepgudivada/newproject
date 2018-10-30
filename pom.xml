@@ -170,6 +170,18 @@
         </dependency>
 
     </dependencies>
+    <distributionManagement>
+	 <snapshotRepository>
+	   <id>nexus</id>
+	   <url>http://34.230.1.64:8081/repository/test-snapshot/</url>
+	 </snapshotRepository>
+		
+	<repository>
+             <id>nexus</id>
+             <url>http://34.230.1.64:8081/repository/test-java/</url>
+	</repository>
+  </distributionManagement>
+     
 
     <build>
         <finalName>calories-tracker</finalName>
