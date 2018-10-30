@@ -24,4 +24,5 @@ node{
        def mvnHome = tool name: 'maven-3' , type: 'maven'
        sh "${mvnHome}/bin/mvn deploy"
    }
-}
+   stage('Build Docker Image'){
+      sh 'docker build -t dileep/myimage:0.0.1 .'
