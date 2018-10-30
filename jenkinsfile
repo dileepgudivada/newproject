@@ -26,3 +26,5 @@ node{
    }
    stage('Build Docker Image'){
       sh 'docker build -t dileep/myimage:0.0.1 .'
+   }
+}
