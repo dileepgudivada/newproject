@@ -27,4 +27,11 @@ node{
    stage('Build Docker Image'){
       sh 'docker build -t dileep/myimage:0.0.1 .'
    }
-}
+   stage('Push to Docker Hub'){
+ 
+	withCredentials([string(credentialsId: 'mydocker', variable: 'docker')]) {
+        sh "docker login -u dileep -p ${docker}"
+     }
+     sh 'docker build -t dileep/myimage:0.0.1 .'
+   }  
+}   
