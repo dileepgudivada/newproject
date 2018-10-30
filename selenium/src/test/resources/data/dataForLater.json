@@ -1,0 +1,37 @@
+{
+	"meal option in search has drop-down selections": {
+		"mealtime": [
+			"breakfast", "lunch", "dinner", "snack"
+		]
+	},
+	"meal option in add has drop-down selections": {
+		"mealtime": [
+			"breakfast", "lunch", "dinner", "snack"
+		]
+	},
+	
+	"category and search are compatible": {
+		"mealtime": [
+			"breakfast", "lunch", "dinner", "snack"
+		]
+	}
+}
+{
+	"Clicking a link takes you the appropriate page": {
+		"link": [
+			"log in", "sign up", "contact us"
+		]
+	},
+	
+	"Contact information is present": {
+		"contactinfo": [
+			"email", "phone"
+		]
+	},
+	"
+	"Clicking a link moves you the appropriate section in the landing page": {
+		"link: [
+			"testimonials", "about", "contact"
+		]
+	}
+}

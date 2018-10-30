@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:alpine
+    container_name: trackerdb
+    environment:
+      - POSTGRES_USER=odds
+      - POSTGRES_PASSWORD=m1r@cL3
+      - POSTGRES_DB=calories_tracker
+    ports:
+      - "5432:5432"
+
+  app:
+    depends_on:
+      - db
+    container_name: trackerapp
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      - ODDS_PASS=m1r@cL3
+      - ODDS_USER=odds
+      - ODDS_DB_URL=postgresql://db:5432/calories_tracker
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./build/exploded:/usr/local/tomcat/webapps/ROOT

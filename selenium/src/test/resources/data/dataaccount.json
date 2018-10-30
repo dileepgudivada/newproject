@@ -1,0 +1,40 @@
+{
+	"Create an account and login to application": 
+	{
+		"signIn": 
+		{
+			"prefix": "Mrs.",
+			"firstname": "FirstName",
+			"lastname": "LastName",
+			"emailaddress": "fl@mail.com",
+			"username": "test12345",
+			"password": "Password2",
+			"confirmpassword": "Password2"
+		}
+	},
+
+	"Login with invalid username and password": 
+	{
+		"signIn": 
+		{
+			"username": "badusername",
+			"password": "wrongPassword2"
+		}
+	},
+
+	"Login page element labels are displayed": 
+	{
+		"signIn": 
+		{
+			"username": "test123",
+			"password": "Password2"
+		},
+
+		"labels": 
+		[
+			"Username",
+			"Password",
+			"New User?"
+		]
+	}
+}
