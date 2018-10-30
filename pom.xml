@@ -180,9 +180,7 @@
              <id>nexus</id>
              <url>http://34.230.1.64:8081/repository/test-java/</url>
 	</repository>
-  </distributionManagement>
-     
-
+    </distributionManagement>
     <build>
         <finalName>calories-tracker</finalName>
         <plugins>
