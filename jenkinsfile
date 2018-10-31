@@ -12,5 +12,5 @@ node{
        withSonarQubeEnv('sonar') {
        sh "${mvnHome}/bin/mvn sonar:sonar"
        }
-   }      	
+   }
 }
