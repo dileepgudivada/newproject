@@ -7,7 +7,7 @@ node{
    echo 'Buliding Code'
    def mvnHome = tool name: 'maven-3', type: 'maven'
    def mvnCMD="${mvnHome}/bin/mvn"
-   sh "${mvnCMD} clean package -Dspring.config.name=applictaion-test -f reservation-svc/pom.xml"
+   sh "${mvnCMD} clean package -Dspring.config.name=applictaion-test -f pom.xml"
    sleep3
    
    task'Functional Testing'
