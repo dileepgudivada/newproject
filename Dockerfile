@@ -2,9 +2,6 @@ FROM tomcat
 MAINTAINER ubuntu 
 ENV JAVA_OPTS="${JAVA_OPTS} -Dspring.profiles.active=development"
 
-RUN chgrp -R 0 /usr/local/tomcat \
-  && chmod -R g+rwX /usr/local/tomcat \
-  && rm -rf /usr/local/tomcat/webapps/ROOT
 COPY target/calories-tracker.war /usr/local/tomcat/webapps/ROOT.war
 
 ENV TZ=America/New_York
