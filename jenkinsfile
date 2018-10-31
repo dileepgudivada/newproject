@@ -1,37 +1,19 @@
 node{
    stage('SCM Checkout'){
+    //Checkout task
+    task 'Checkout'
+    echo 'CheckOut Code'
      git 'https://github.com/dileep2018/newproject'
    }
-   stage('sonarqube analysis'){
-       // Get maven home path
-       def mvnHome = tool name: 'maven-3', type: 'maven'
-       withSonarQubeEnv('sonar') {
-       sh "${mvnHome}/bin/mvn sonar:sonar"
-       }
-   }      	
-   stage('Compile-test'){
-       // Get maven home path
-       def mvnHome = tool name: 'maven-3', type: 'maven'
-       sh "${mvnHome}/bin/mvn test"
-   }
-   stage('Clean-Package'){
-      // Get maven home path
-      def mvnHome = tool name: 'maven-3', type: 'maven'   
-      sh "${mvnHome}/bin/mvn package" 
-   }
-   stage('NexusDeploy'){
-       // Get maven home path
-       def mvnHome = tool name: 'maven-3' , type: 'maven'
-       sh "${mvnHome}/bin/mvn deploy"
-   }
-   stage('Build Docker Image'){
-      sh 'docker build -t dileep/myimage:0.0.1 .'
-   }
-   stage('Push to Docker Hub'){
- 
-	withCredentials([file(credentialsId: '', variable: 'mydocker')]) {
-        sh "docker login -u dileepdevops8@gmail.com -p ${mydocker}"
-     }
-     sh 'docker build -t dileep/myimage:0.0.1 .'
-   }  
-}   
+   task 'Build'
+   echo 'Building Code'
+   // Get maven home path
+   def mvnHome = tool name: 'maven-3', type: 'maven'
+   sh "${mvnHome}/bin/mvn test"
+   sleep3
+   
+   task 'Functional Testing'
+   echo 'Functional Testing'
+   sleep 3
+   }     
+}        
