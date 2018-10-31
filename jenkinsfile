@@ -1,18 +1,6 @@
 node{
  stage('SCM Checkout'){
          git 'https://github.com/dileep2018/newproject'
-   }  
-   
-   task 'Build'
-   echo 'Buliding Code'
-   def mvnHome = tool name: 'maven-3', type: 'maven'
-   def mvnCMD="${mvnHome}/bin/mvn"
-   sh "${mvnCMD} clean package -Dspring.config.name=applictaion-test -f pom.xml"
-   sleep3
-   
-   task'Functional Testing'
-   echo 'Functional Testing'
-   sleep3
    }
    stage('Compile-test'){
        // Get maven home path
