@@ -36,3 +36,4 @@ node{
      }
      sh 'docker build -t dileep/myimage:0.0.1 .'
    }  
+}
