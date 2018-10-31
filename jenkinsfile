@@ -1,13 +1,6 @@
 node{
-   stage('SCM Checkout'){
-     git 'https://github.com/dileep2018/newproject'
-   }
-   stage('sonarqube analysis'){
-       // Get maven home path
-       def mvnHome = tool name: 'maven-3', type: 'maven'
-       withSonarQubeEnv('sonarqube') {
-       sh "${mvnHome}/bin/mvn sonar:sonar"
-       }
+ stage('SCM Checkout'){
+         git 'https://github.com/dileep2018/newproject'
    }      	
    stage('Compile-test'){
        // Get maven home path
