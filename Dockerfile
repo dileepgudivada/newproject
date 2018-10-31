@@ -1,5 +1,4 @@
-FROM tomcat:8.5
-
+FROM tomcat
 MAINTAINER Rafael Troncoso<rafael.troncoso@salientcrgt.com>
 ENV JAVA_OPTS="${JAVA_OPTS} -Dspring.profiles.active=development"
 
