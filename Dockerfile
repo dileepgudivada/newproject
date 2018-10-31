@@ -1,5 +1,5 @@
 FROM tomcat
-MAINTAINER Rafael Troncoso<rafael.troncoso@salientcrgt.com>
+MAINTAINER ubuntu 
 ENV JAVA_OPTS="${JAVA_OPTS} -Dspring.profiles.active=development"
 
 RUN chgrp -R 0 /usr/local/tomcat \
