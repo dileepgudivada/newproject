@@ -1,6 +1,5 @@
 node{
    stage('SCM Checkout'){
-    //Checkout task
     task 'Checkout'
     echo 'CheckOut Code'
      git 'https://github.com/dileep2018/newproject'
