@@ -25,8 +25,7 @@ node{
                 setBuildStatus ("${context}", "Sonarqube quality gate pass: ${qg.status}", 'SUCCESS')
             }    
         }
-    }
-}    
+   }   
    
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
