@@ -13,7 +13,20 @@ node{
         withSonarQubeEnv('sonarqube') { 
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
+    }   
+    
+    stage("Quality Gate Statuc Check"){
+          timeout(time: 1, unit: 'HOURS') {
+              def qg = waitForQualityGate()
+              if (qg.status != 'OK') {
+               setBuildStatus ("${context}", "Sonarqube quality gate fail: ${qg.status}", 'FAILURE')
+               error "Pipeline aborted due to quality gate failure: ${qg.status}"
+            } else {
+                setBuildStatus ("${context}", "Sonarqube quality gate pass: ${qg.status}", 'SUCCESS')
+            }    
+        }
     }
+}    
    
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
