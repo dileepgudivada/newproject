@@ -38,8 +38,12 @@ node{
     stage('Build Docker Image'){
       sh 'docker build -t dileep/myimage:0.0.1 .'
     }
+    stage('Production'){
+     sshagent(['tomcat']) {
+       sh 'ssh -o StrictHostKeyChecking=no target/*.war ubuntu172.31.1.73@:/opt/tomcat/webapps/'
+     }
+    }
     stage('Push to Docker Hub'){
- 
 	withCredentials([file(credentialsId: '', variable: 'mydocker')]) {
         sh "docker login -u dileepdevops8@gmail.com -p ${mydocker}"
      }
