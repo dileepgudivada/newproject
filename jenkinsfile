@@ -40,7 +40,7 @@ node{
     }
     stage('Production'){
      sshagent(['tomcat']) {
-       sh 'ssh -o StrictHostKeyChecking=no target/*.war ubuntu@172.31.1.73:/opt/tomcat/webapps/'
+       sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@172.31.1.73:/opt/tomcat/webapps/'
      }
     }
     stage('Push to Docker Hub'){
