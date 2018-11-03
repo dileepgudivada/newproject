@@ -5,13 +5,13 @@ node ('jenkinsslave') {
    stage('Compile-test'){
        // Get maven home path
        def mvnHome = tool name: 'apache-maven-3.5.4', type: 'maven'
-       sh "${mvnHome}/opt/apache-maven-3.5.4 test"
+       sh "${mvnHome}/opt/mvn test"
    }
    
    stage('SonarQube Analysis') {
         def mvnHome =  tool name: 'maven-3.5.4', type: 'maven'
         withSonarQubeEnv('sonarqube') { 
-          sh "${mvnHome}/opt/apache-maven-3.5.4 sonar:sonar"
+          sh "${mvnHome}/opt/mvn sonar:sonar"
         }
     }
     
@@ -27,13 +27,13 @@ node ('jenkinsslave') {
     stage('Clean-Package'){
       // Get maven home path
       def mvnHome = tool name: 'maven-3.5.4', type: 'maven'   
-      sh "${mvnHome}/opt/maven-3.5.4 package" 
+      sh "${mvnHome}/opt/mvn package" 
     }
    
     stage('NexusDeploy'){
        // Get maven home path
        def mvnHome = tool name: 'maven-3.5.4' , type: 'maven'
-       sh "${mvnHome}/opt/maven-3.5.4 deploy"
+       sh "${mvnHome}/opt/mvn deploy"
     }
     stage('Build Docker Image'){
       sh 'docker build -t dileep/myimage:0.0.1 .'
