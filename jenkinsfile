@@ -4,12 +4,12 @@ node ('jenkinsslave') {
    }
    stage('Compile-test'){
        // Get maven home path
-       def mvnHome = tool name: 'apache-maven-3.5.4', type: 'apache-maven-3.5.4'
+       def mvnHome = tool name: 'maven-3', type: 'apache-maven-3.5.4'
        sh "${mvnHome}/opt/mvn test"
    }
    
    stage('SonarQube Analysis') {
-        def mvnHome =  tool name: 'maven-3.5.4', type: 'apache-maven-3.5.4'
+        def mvnHome =  tool name: 'maven-3', type: 'apache-maven-3.5.4'
         withSonarQubeEnv('sonarqube') { 
           sh "${mvnHome}/opt/mvn sonar:sonar"
         }
@@ -26,7 +26,7 @@ node ('jenkinsslave') {
     
     stage('Clean-Package'){
       // Get maven home path
-      def mvnHome = tool name: 'maven-3.5.4', type: 'maven'   
+      def mvnHome = tool name: 'maven-3', type: 'maven'   
       sh "${mvnHome}/opt/mvn package" 
     }
    
