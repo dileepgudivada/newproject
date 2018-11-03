@@ -1,4 +1,4 @@
-node ('Node') {	
+node ('jenkinsslave') {	
  stage('SCM Checkout'){
          git 'https://github.com/dileep2018/newproject'
    }
